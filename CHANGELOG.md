@@ -5,11 +5,12 @@ All notable changes to the Claude Skills Library will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] — Skill Expansion Phase 1
+## [Unreleased] — Skill Expansion Phase 1+2
 
 ### Added — Engineering POWERFUL
 
 - **feature-flags-architect** — End-to-end feature-flag discipline. Detects stale flags as debt (`flag_debt_scanner.py`), generates phased rollout plans across ring/linear/log/cohort strategies (`rollout_planner.py`), and audits every flag for documented kill switch (`kill_switch_audit.py`). 4 references on flag taxonomy, provider comparison (LaunchDarkly / GrowthBook / Statsig / Unleash / Flipt / DIY), rollout strategies, and lifecycle. Ships standalone plugin AND in the engineering-advanced-skills bundle. New `/flag-cleanup` slash command.
+- **kubernetes-operator** — End-to-end Kubernetes Operator discipline. Validates CRDs against operator-pattern best practices (`crd_validator.py`), lints Go reconcile functions for anti-patterns like `time.Sleep`, spec mutation, missing requeue, finalizer imbalance (`reconcile_lint.py`), and scores operators against OperatorHub Capability Levels 1-5 (`operator_capability_audit.py`). 4 references on operator pattern, CRD design, reconcile loop patterns, and framework comparison (controller-runtime / kubebuilder / operator-sdk / metacontroller / KOPF). Asset templates for production CRD YAML and Go controller skeleton (both pass linters). New `/operator-audit` slash command. NOT a generic k8s skill — specifically the Operator pattern. Self-tested: linters caught 4 real bugs in their own asset templates during build.
 
 ### Added — Repo infrastructure
 
@@ -18,12 +19,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- **Total skills:** 235 → 236 (+1 new engineering POWERFUL skill)
-- **Python tools:** 314 → 319
-- **References:** 435 → 439
-- **Slash commands:** 27 → 28
-- **engineering-advanced-skills** plugin: v2.3.3 → v2.4.0
-- **marketplace.json**: `feature-flags-architect` registered as standalone plugin
+- **Total skills:** 235 → 237 (+2 new engineering POWERFUL skills)
+- **Python tools:** 314 → 322
+- **References:** 435 → 443
+- **Slash commands:** 27 → 29
+- **engineering-advanced-skills** plugin: v2.3.3 → v2.4.1
+- **marketplace.json**: `feature-flags-architect` and `kubernetes-operator` registered as standalone plugins
 
 ### Fixed
 

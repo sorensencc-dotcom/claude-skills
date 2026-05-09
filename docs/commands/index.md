@@ -1,13 +1,13 @@
 ---
 title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
-description: "30 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
+description: "31 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-console: Slash Commands
 
-<p class="domain-count">30 commands for quick access to common operations</p>
+<p class="domain-count">31 commands for quick access to common operations</p>
 
 </div>
 
@@ -72,6 +72,12 @@ description: "30 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
     ---
 
     Generate cascaded OKR frameworks from company-level strategy down to team-level key results.
+
+-   :material-console:{ .lg .middle } **[`/operator-audit`](operator-audit.md)**
+
+    ---
+
+    Run the full audit on a Kubernetes Operator repository:
 
 -   :material-console:{ .lg .middle } **[`/persona`](persona.md)**
 
