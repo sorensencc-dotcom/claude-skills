@@ -1,6 +1,6 @@
 ---
-title: 188 Agent Skills for Codex, Gemini CLI & OpenClaw
-description: "188 production-ready Claude Code skills and agent plugins for 12 AI coding tools. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Hermes Agent, Cursor, and OpenClaw."
+title: 246 Agent Skills for Codex, Gemini CLI & OpenClaw
+description: "246 production-ready Claude Code skills and agent plugins for 12 AI coding tools. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Hermes Agent, Cursor, and OpenClaw."
 hide:
   - toc
   - edit
@@ -14,7 +14,7 @@ hide:
 
 # Agent Skills
 
-188 production-ready skills, 30 agents, 3 personas, and an orchestration protocol for AI coding tools.
+246 production-ready skills, 20 cs-* agents, 7 personas, and an orchestration protocol for AI coding tools.
 { .hero-subtitle }
 
 [Get Started](getting-started.md){ .md-button .md-button--primary }
@@ -49,7 +49,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-toolbox:{ .lg .middle } **188 Skills**
+-   :material-toolbox:{ .lg .middle } **246 Skills**
 
     ---
 
@@ -57,7 +57,7 @@ hide:
 
     [:octicons-arrow-right-24: Browse skills](skills/)
 
--   :material-robot:{ .lg .middle } **30 Agents**
+-   :material-robot:{ .lg .middle } **20 Agents**
 
     ---
 

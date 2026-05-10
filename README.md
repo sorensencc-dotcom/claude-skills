@@ -1,15 +1,15 @@
 # Claude Code Skills & Plugins — Agent Skills for Every Coding Tool
 
-**188 production-ready Claude Code skills, plugins, and agent skills for 12 AI coding tools.**
+**246 production-ready Claude Code skills, plugins, and agent skills for 12 AI coding tools.**
 
 The most comprehensive open-source library of Claude Code skills and agent plugins — also works with OpenAI Codex, Gemini CLI, Cursor, and 7 more coding agents. Reusable expertise packages covering engineering, DevOps, marketing, compliance, C-level advisory, and more.
 
 **Works with:** Claude Code · OpenAI Codex · Gemini CLI · OpenClaw · Hermes Agent · Cursor · Aider · Windsurf · Kilo Code · OpenCode · Augment · Antigravity
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-188-brightgreen?style=for-the-badge)](#skills-overview)
-[![Agents](https://img.shields.io/badge/Agents-30-blue?style=for-the-badge)](#agents)
-[![Personas](https://img.shields.io/badge/Personas-3-purple?style=for-the-badge)](#personas)
+[![Skills](https://img.shields.io/badge/Skills-246-brightgreen?style=for-the-badge)](#skills-overview)
+[![Agents](https://img.shields.io/badge/Agents-20-blue?style=for-the-badge)](#agents)
+[![Personas](https://img.shields.io/badge/Personas-7-purple?style=for-the-badge)](#personas)
 [![Commands](https://img.shields.io/badge/Commands-33-orange?style=for-the-badge)](#commands)
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=for-the-badge)](https://github.com/alirezarezvani/claude-skills/stargazers)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1?style=for-the-badge)](https://getskillcheck.com)
@@ -146,7 +146,7 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 
 ## Skills Overview
 
-**188 skills across 9 domains:**
+**246 skills across 9 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|
