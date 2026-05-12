@@ -5,6 +5,36 @@ All notable changes to the Claude Skills Library will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.1] - 2026-05-12 — general-counsel-advisor: the gstack-can't-touch lane
+
+### Added — C-Level Advisory
+
+- **general-counsel-advisor** skill (`./c-level-advisor/skills/general-counsel-advisor/`) — full standalone C-role skill backing the `/cs:gc-review` command (which previously had no underlying skill). 2 stdlib Python tools, 3 reference docs.
+  - **`contract_risk_scanner.py`** — Scans contract text for 12 founder-killer clause patterns: auto-renewal with long notice (>30 day), customer-indemnity-carved-out-from-cap, one-sided indemnity, vague IP ownership, aggressive non-compete (>1 year), one-sided choice-of-law/venue, one-sided force majeure, missing DPA when personal data flows, MFN pricing, one-sided audit rights, broad non-solicit, perpetual license-back. Outputs ranked findings (CRITICAL/HIGH/MEDIUM) with excerpt, why-it-matters, and suggested redline. Stdlib-only, JSON or text output. Embedded sample MSA detects 7 risks across all 3 severity levels.
+  - **`term_sheet_analyzer.py`** — Scores a term sheet 0-100 across 12 dimensions: liquidation preference (1x non-participating vs participating vs multi-preference), anti-dilution (broad-based weighted average vs narrow vs full ratchet), option pool (pre-money vs post-money + size), board composition (founder vs investor vs independent seats), vesting + acceleration (single vs double trigger), pro-rata, drag-along (founder consent / price floor), protective provisions (NVCA standard vs aggressive), information rights, dividends (none / non-cumulative / cumulative), valuation/dilution sanity, holistic posture. Outputs FOUNDER_FRIENDLY / NEGOTIATE / HOSTILE grade plus per-clause flags. Stdlib-only, JSON-input + JSON-or-text output.
+  - **`references/contracts_playbook.md`** — 7 standard startup contracts (MSA, customer SaaS, NDA, DPA, employment, contractor, equity), top redlines per type, quick triage heuristics.
+  - **`references/ip_and_regulatory.md`** — Full IP strategy (patents, copyright, trademark, trade secrets, invention assignment, OSS license compliance for permissive/weak-copyleft/strong-copyleft including AGPL) plus regulatory trigger matrix (HIPAA, PCI DSS, BSA/AML, FDA 510(k), MDR, GDPR, CCPA, COPPA, securities, ITAR, EU AI Act, telehealth, insurance) with SOC 2 → ISO 27001 → ISO 42001 sequencing and when-to-hire-a-GC criteria.
+  - **`references/term_sheet_decoder.md`** — Full term sheet glossary, founder-friendly defaults cheat sheet, the three clauses that matter most (liquidation preference, option pool pre/post-money, anti-dilution), and negotiation strategy.
+- **cs-general-counsel-advisor** agent (`./c-level-advisor/c-level-agents/agents/cs-general-counsel-advisor.md`) — risk-paranoid persona orchestrating the skill via `/cs:gc-review`. Distinct voice: "Before we sign, three things need to be settled in writing." Hard rule: never gives definitive legal advice; always escalates to qualified outside counsel.
+- **`/cs:gc-review`** updated to invoke the new tools and reference the skill (the command previously pointed at a planned skill with a CHANGELOG note).
+
+### Why This Matters
+
+YC Garry Tan's `gstack` has zero coverage for General Counsel — its "executives" are all software-shipping personas (CEO = scope-cutter, Eng Mgr = test matrix). But legal exposure is where startups most often discover a problem after it's expensive to fix: a missed DPA exposes the company to GDPR fines, vague IP clauses kill acquisition deals years later, full-ratchet anti-dilution silently transfers 5-15% of founder equity at the next down round. This is the first plugin in the founder-mode lineup to outclass gstack on a domain it doesn't even attempt.
+
+### Changed
+
+- **Total skills:** 263 → 264 (+1 general-counsel-advisor)
+- **cs-* agents:** 28 → 29 (+1 cs-general-counsel-advisor in c-level-agents plugin)
+- **Python tools:** 359 → 361 (+2 in general-counsel-advisor/scripts/)
+- **References:** 487 → 490 (+3 in general-counsel-advisor/references/)
+- **c-level-skills** plugin: v2.5.0 → v2.5.1 (description expanded; 28 → 29 skills, 8 → 9 cs-* agents)
+- **c-level-agents** plugin: v1.0.0 → v1.1.0 (description expanded with General Counsel; new agent added; +`contract-review`, `term-sheet`, `ip-strategy` keywords)
+
+### Disclaimer
+
+The `general-counsel-advisor` skill and `cs-general-counsel-advisor` agent are **not legal advice**. Every output surfaces questions to bring to qualified counsel; both Python tools and all 3 references repeatedly remind users to engage licensed attorneys for binding decisions. The skill is positioned as a triage layer — useful for catching the obvious traps before $500/hour counsel time, never as a substitute.
+
 ## [2.5.0] - 2026-05-12 — c-level-agents: Founder-Mode Executive Team
 
 ### Added — C-Level Advisory

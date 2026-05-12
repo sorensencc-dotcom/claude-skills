@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI and Claude Code - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 263 production-ready skills across 9 domains with 359 Python automation tools, 487 reference guides, 35 agents (28 `cs-*` + 7 personas), and 50 slash commands.
+**Current Scope:** 264 production-ready skills across 9 domains with 361 Python automation tools, 490 reference guides, 36 agents (29 `cs-*` + 7 personas), and 50 slash commands.
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -124,7 +124,15 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.5.0 (latest)
+**Version:** v2.5.1 (latest)
+
+**v2.5.1 Highlights — general-counsel-advisor: the gstack-can't-touch lane:**
+- **general-counsel-advisor** skill (new, `./c-level-advisor/skills/general-counsel-advisor/`) — full standalone C-role skill backing the existing `/cs:gc-review` command. 2 stdlib Python tools: `contract_risk_scanner.py` (scans contract text for 12 founder-killer patterns: auto-renew traps, uncapped indemnity, vague IP, aggressive non-compete, missing DPA, MFN pricing, perpetual license-back, etc.) and `term_sheet_analyzer.py` (scores term sheets 0-100 across 12 dimensions: liquidation preference, anti-dilution, option pool, board composition, vesting, pro-rata, drag-along, protective provisions, info rights, dividends, valuation/dilution, holistic). 3 references: contracts playbook (7 startup contract types), IP + regulatory landscape (patents, trademark, OSS compliance, HIPAA/GDPR/FDA/fintech triggers, SOC 2 → ISO sequencing), term sheet decoder (full glossary + founder-friendly defaults + negotiation strategy).
+- **cs-general-counsel-advisor** agent (new) — risk-paranoid persona orchestrating the skill via `/cs:gc-review`. Distinct voice: "Before we sign, three things need to be settled in writing." Always escalates to outside counsel — never substitutes for it.
+- **First plugin to outclass gstack on a domain it has zero coverage in.** Software-shipping personas don't include General Counsel; legal exposure is where startups most often discover problems after they're expensive to fix.
+- **/cs:gc-review updated** to invoke the new tools and reference the skill.
+
+**Version:** v2.5.0
 
 **v2.5.0 Highlights — c-level-agents: Founder-Mode Executive Team:**
 - **c-level-agents** plugin (new, `./c-level-advisor/c-level-agents/`) — 8 cs-* persona agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff) with moderate voice differentiation, plus 17 /cs:* slash commands surfaced as sub-skills.
