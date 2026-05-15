@@ -1,4 +1,4 @@
-# Mega Prompt: Landing Page Generator Skill
+# Mega Prompt: Landing — Premium HTML Landing Page Generator Skill
 
 ## Role
 
@@ -6,7 +6,7 @@ You are a **Skill Architect** specializing in frontend generation workflows. Gen
 
 ## Output Target
 
-Single file: `${SKILLS_DIR}/landing-page/SKILL.md`
+Single file: `${SKILLS_DIR}/landing/SKILL.md`
 
 Word budget: 2,000–2,400 words. Hard ceiling: 2,500.
 
@@ -29,17 +29,64 @@ The skill must specify how to:
 The generated skill must follow this structure:
 
 ```
-1. Content extraction (with fallback strategy)
-2. Brand system selection (default + override path)
-3. Section 1: Hero (structure + depth layers + animations)
-4. Section 2: Features (structure + card spec + reveal animation)
-5. Section 3: Closing CTA (structure + ambient glow)
-6. Brand system reference (colors, typography, components)
-7. Required CDN dependencies
-8. Animation patterns (entrance, parallax, scroll-triggered, floating)
-9. Layout rules (responsive grid, viewport behavior)
-10. Output spec (path, naming, file format)
+1. Phase 0: Grill-Me Intake (3–4 forcing questions before generation)
+2. Content extraction (with fallback strategy)
+3. Brand system selection (default + override path)
+4. Section 1: Hero (structure + depth layers + animations)
+5. Section 2: Features (structure + card spec + reveal animation)
+6. Section 3: Closing CTA (structure + ambient glow)
+7. Brand system reference (colors, typography, components)
+8. Required CDN dependencies
+9. Animation patterns (entrance, parallax, scroll-triggered, floating)
+10. Layout rules (responsive grid, viewport behavior)
+11. Output spec (path, naming, file format)
 ```
+
+## Grill-Me Intake Specification
+
+Four forcing questions, one at a time, dependency-ordered. Each carries "why I'm asking". Goal: lock down product, audience, and brand before writing copy or markup. Skipping intake produces generic landing pages that miss the actual positioning.
+
+### Q1 (root) — Product / service
+
+> **What's the product or service? Give me the name + a 1–2 sentence elevator pitch — what does it do, and who's it for?**
+>
+> *Why I'm asking:* The headline, subtext, and feature copy all derive from this. "App for productivity" produces generic boilerplate; "Async standup tool for remote engineering teams who hate Zoom" produces a landing page that converts.
+
+Refuse mush. If user gives just a name with no pitch, push: "What does it do? Who's it for?"
+
+### Q2 (depends on Q1) — Audience register
+
+> **Who's the audience? Pick one:**
+> 1. Technical buyers (engineers, ops, security)
+> 2. Business buyers (PMs, execs, ops leaders)
+> 3. Consumers (general public, hobbyists)
+> 4. Internal (employees, partners — not for public sale)
+>
+> *Why I'm asking:* Audience dictates copy register, jargon level, social-proof choices, and CTA framing. Technical buyers want specifics; consumers want benefits; internal pages can skip persuasion.
+
+Forcing choice.
+
+### Q3 (always) — Brand overrides
+
+> **Brand colors / fonts to override the default (dark navy + teal + Inter)? Provide as: primary HEX, accent HEX, optional bg HEX. Or say "default" if you want the polished default.**
+>
+> *Why I'm asking:* The default is intentionally beautiful, but matching your brand makes the page feel native to your existing site. Even just a primary color override goes a long way.
+
+Accept "default" or partial overrides (e.g., just primary). If only primary provided, derive accent algorithmically (lighten/darken).
+
+### Q4 (depends on Q1) — Tone
+
+> **Tone — pick one:**
+> 1. Professional — confident, restrained, B2B-friendly
+> 2. Playful — warm, light, occasional humor
+> 3. Authoritative — expert, data-forward, trust-building
+> 4. Minimal — terse, design-led, low copy density
+>
+> *Why I'm asking:* Tone affects every sentence — headlines, microcopy, button text, closing copy. Picking upfront prevents tonal whiplash across sections.
+
+Forcing choice. Recommended default: professional if Q2 = technical/business; playful if Q2 = consumer; minimal if the product is design-led.
+
+**Stop condition:** After Q4, commit and generate. No follow-up questions during generation.
 
 ## Critical Improvements Over Naive Implementation
 
@@ -157,9 +204,9 @@ Skill must specify exactly these (no exceptions):
 
 ## Output Spec
 
-- Path: `${OUTPUT_DIR}/<product-name-kebab>-landing.html`
+- Path: `${OUTPUT_DIR}/<product-name-kebab>.html`
 - Default `${OUTPUT_DIR}`: `./landing-pages/`
-- Filename: lowercase kebab-case from product name (“Quill AI” → `quill-ai-landing.html`)
+- Filename: lowercase kebab-case from product name ("Quill AI" → `quill-ai.html`)
 - Self-contained: all CSS in `<style>`, all JS in `<script>`, only Google Fonts + GSAP CDN external
 
 ## Trigger Phrases (for frontmatter description)
@@ -198,8 +245,8 @@ The skill must document both delivery modes:
 
 ```yaml
 ---
-name: landing-page
-description: "Generates a premium single-page HTML landing page with 3D CSS animations, GSAP scroll effects, and mouse-parallax depth. Use whenever the user says 'create a landing page', 'build a landing page', 'make a landing page for X', 'I need a web page for Y', or provides product/service details and wants a polished website. Also triggers on 'promotional page', 'product page', 'one-pager', 'web presence', 'sales page'. Outputs a single self-contained HTML file (Claude Code) or HTML artifact (Claude.ai). Supports configurable brand colors via CSS custom property overrides."
+name: landing
+description: "Generates a premium single-page HTML landing page with 3D CSS animations, GSAP scroll effects, and mouse-parallax depth. Forcing intake (product + elevator pitch, audience register, brand overrides, tone) locks down positioning before any copy or markup is written, so the page reflects the actual product rather than generic boilerplate. Use whenever the user says 'landing for X', 'create a landing page', 'build a landing page', 'make a landing page for X', 'I need a web page for Y', or provides product/service details and wants a polished website. Also triggers on 'promotional page', 'product page', 'one-pager', 'web presence', 'sales page'. Outputs a single self-contained HTML file (Claude Code) or HTML artifact (Claude.ai). Supports configurable brand colors via CSS custom property overrides."
 ---
 ```
 
@@ -215,8 +262,13 @@ description: "Generates a premium single-page HTML landing page with 3D CSS anim
 
 ## Validation Checklist (Run Before Delivery)
 
-- [ ] Frontmatter parses as YAML
+- [ ] Frontmatter parses as YAML (name: landing)
+- [ ] Output target path uses `${SKILLS_DIR}/landing/SKILL.md`
 - [ ] Word count 2,000–2,500
+- [ ] Grill-me intake: 3–4 questions, one-at-a-time, with "why I'm asking" per question
+- [ ] Q1 (product) refuses vague answers
+- [ ] Q2 (audience) forcing choice across 4 options
+- [ ] Q4 (tone) forcing choice across 4 options
 - [ ] Default color palette documented as CSS custom properties
 - [ ] Override pattern documented
 - [ ] All 3 sections fully specified
