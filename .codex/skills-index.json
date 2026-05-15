@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 289,
+  "total_skills": 290,
   "skills": [
     {
       "name": "business-growth-skills",
@@ -595,15 +595,15 @@
     },
     {
       "name": "review",
-      "source": "../../engineering-team/playwright-pro/skills/review",
-      "category": "engineering",
-      "description": ">-"
-    },
-    {
-      "name": "review",
       "source": "../../engineering-team/self-improving-agent/skills/review",
       "category": "engineering",
       "description": "Analyze auto-memory for promotion candidates, stale entries, consolidation opportunities, and health metrics."
+    },
+    {
+      "name": "review",
+      "source": "../../engineering-team/playwright-pro/skills/review",
+      "category": "engineering",
+      "description": ">-"
     },
     {
       "name": "security-pen-testing",
@@ -930,6 +930,12 @@
       "description": "Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree. Use when user wants to stress-test a plan, get grilled on their design, or mentions \"grill me\"."
     },
     {
+      "name": "grill-with-docs",
+      "source": "../../engineering/grill-with-docs/skills/grill-with-docs",
+      "category": "engineering-advanced",
+      "description": "Docs-anchored grilling session \u2014 challenges a plan against the project's existing language (CONTEXT.md) and recorded decisions (docs/adr/), and updates those files inline as terminology and decisions crystallise. Use when user wants to stress-test a plan against documented domain language, or mentions \"grill with docs\"."
+    },
+    {
       "name": "handoff",
       "source": "../../engineering/handoff/skills/handoff",
       "category": "engineering-advanced",
@@ -1057,15 +1063,15 @@
     },
     {
       "name": "run",
-      "source": "../../engineering/agenthub/skills/run",
-      "category": "engineering-advanced",
-      "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation."
-    },
-    {
-      "name": "run",
       "source": "../../engineering/autoresearch-agent/skills/run",
       "category": "engineering-advanced",
       "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard."
+    },
+    {
+      "name": "run",
+      "source": "../../engineering/agenthub/skills/run",
+      "category": "engineering-advanced",
+      "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation."
     },
     {
       "name": "runbook-generator",
@@ -1147,15 +1153,15 @@
     },
     {
       "name": "status",
-      "source": "../../engineering/agenthub/skills/status",
-      "category": "engineering-advanced",
-      "description": "Show DAG state, agent progress, and branch status for an AgentHub session."
-    },
-    {
-      "name": "status",
       "source": "../../engineering/autoresearch-agent/skills/status",
       "category": "engineering-advanced",
       "description": "Show experiment dashboard with results, active loops, and progress."
+    },
+    {
+      "name": "status",
+      "source": "../../engineering/agenthub/skills/status",
+      "category": "engineering-advanced",
+      "description": "Show DAG state, agent progress, and branch status for an AgentHub session."
     },
     {
       "name": "tc-tracker",
@@ -1757,7 +1763,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 74,
+      "count": 75,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },
