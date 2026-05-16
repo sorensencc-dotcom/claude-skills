@@ -55,6 +55,18 @@ SKILL_DOMAINS = {
     "finance": {
         "category": "finance",
         "description": "Financial analysis, valuation, and forecasting skills"
+    },
+    "productivity": {
+        "category": "productivity",
+        "description": "Personal-productivity skills - capture, email, reflect"
+    },
+    "marketing": {
+        "category": "marketing",
+        "description": "Top-level marketing slices (landing-page generator)"
+    },
+    "research": {
+        "category": "research",
+        "description": "Research orchestrator + 6 specialists (pulse, litreview, grants, dossier, patent, syllabus, notebooklm)"
     }
 }
 
