@@ -31,7 +31,7 @@
     {
       "name": "cs-backend-engineer",
       "category": "agent",
-      "description": "Backend-engineering orchestrator. Walks the 7 Matt Pocock forcing questions (read/write ratio + QPS, tenancy, sync vs async, data sensitivity, pattern, RPO/RTO, SLO), picks the language + pattern profile, forks into specialists (api-design-reviewer, database-designer, migration-architect, slo-architect, observability-designer) rather than reimplementing their scope. Forks own context. Invoke via /cs:backend-review or Agent({subagent_type:\"cs-backend-engineer\",...})."
+      "description": "Backend-engineering orchestrator. Walks the 7 Matt Pocock forcing questions (read/write ratio + QPS, tenancy, sync vs async, data sensitivity, pattern, RPO/RTO, SLO), picks the language + pattern profile, forks into specialists (api-design-reviewer, database-designer, migration-architect, observability-designer, slo-architect \u2014 listed alphabetically; workflow order is dependency-driven) rather than reimplementing their scope. Forks own context. Invoke via /cs:backend-review or Agent({subagent_type:\"cs-backend-engineer\",...})."
     },
     {
       "name": "cs-ceo-advisor",
@@ -66,12 +66,12 @@
     {
       "name": "cs-frontend-engineer",
       "category": "agent",
-      "description": "Frontend-engineering orchestrator. Walks the 7 Matt Pocock forcing questions (device, LCP target, rendering, bundle budget, SEO vs auth, design system, WCAG), picks the framework/rendering profile, forks into specialists (a11y-audit, performance-profiler, epic-design, apple-hig-expert, playwright-pro) rather than reimplementing their scope. Forks own context. Invoke via /cs:frontend-review or Agent({subagent_type:\"cs-frontend-engineer\",...})."
+      "description": "Frontend-engineering orchestrator. Walks the 7 Matt Pocock forcing questions (device, LCP target, rendering, bundle budget, SEO vs auth, design system, WCAG), picks the framework/rendering profile, forks into specialists (a11y-audit, apple-hig-expert, epic-design, performance-profiler, playwright-pro \u2014 listed alphabetically; workflow order is dependency-driven) rather than reimplementing their scope. Forks own context. Invoke via /cs:frontend-review or Agent({subagent_type:\"cs-frontend-engineer\",...})."
     },
     {
       "name": "cs-fullstack-engineer",
       "category": "agent",
-      "description": "Fullstack-engineering orchestrator. Walks the Matt Pocock 7-question forcing-question grill, runs the deterministic profile picker, then forks into the POWERFUL-tier specialists (api-design-reviewer, database-designer, slo-architect, ci-cd-pipeline-builder, performance-profiler) rather than reimplementing their scope. Forks own context so heavy ingestion does not pollute parent thread. Invoke via /cs:fullstack-review or Agent({subagent_type:\"cs-fullstack-engineer\",...})."
+      "description": "Fullstack-engineering orchestrator. Walks the Matt Pocock 7-question forcing-question grill, runs the deterministic profile picker, then forks into the POWERFUL-tier specialists (api-design-reviewer, ci-cd-pipeline-builder, database-designer, performance-profiler, slo-architect \u2014 listed alphabetically; workflow order is dependency-driven) rather than reimplementing their scope. Forks own context so heavy ingestion does not pollute parent thread. Invoke via /cs:fullstack-review or Agent({subagent_type:\"cs-fullstack-engineer\",...})."
     },
     {
       "name": "cs-growth-strategist",
@@ -1009,7 +1009,7 @@
       "description": ">-"
     },
     {
-      "name": "skills-status",
+      "name": "skills-status-2",
       "category": "engineering",
       "description": "Memory health dashboard showing line counts, topic files, capacity, stale entries, and recommendations."
     },
