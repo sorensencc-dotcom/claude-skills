@@ -39,7 +39,7 @@ jobs:
           fi
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.7
         with:
           fetch-depth: 0
           ref: ${{ steps.ref.outputs.target_ref }}
@@ -108,3 +108,4 @@ jobs:
         if: always()
         run: |
           echo "Quality gate completed with status: ${{ job.status }}"
+

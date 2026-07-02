@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.7
         with:
           fetch-depth: 0
           token: ${{ secrets.PROJECTS_TOKEN }}
@@ -87,3 +87,4 @@ jobs:
           else
             echo "No skills index found." >> $GITHUB_STEP_SUMMARY
           fi
+

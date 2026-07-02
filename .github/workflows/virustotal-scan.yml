@@ -20,7 +20,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.7
         with:
           fetch-depth: 0
 
@@ -159,3 +159,4 @@ jobs:
               issue_number: context.issue.number,
               body
             });
+

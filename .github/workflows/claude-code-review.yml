@@ -78,7 +78,7 @@ jobs:
 
       - name: Checkout repository
         if: steps.bypass.outputs.bypass != 'true'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.7
         with:
           fetch-depth: 1
 
@@ -140,3 +140,4 @@ jobs:
           echo "For fork PRs this is expected — OIDC tokens are unavailable." >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "- Retry from the Actions tab, or proceed with manual review." >> "$GITHUB_STEP_SUMMARY"
+
