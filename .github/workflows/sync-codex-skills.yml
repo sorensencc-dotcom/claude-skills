@@ -19,7 +19,7 @@ on:
 
 jobs:
   sync:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     permissions:
       contents: write
 
@@ -87,5 +87,6 @@ jobs:
           else
             echo "No skills index found." >> $GITHUB_STEP_SUMMARY
           fi
+
 
 

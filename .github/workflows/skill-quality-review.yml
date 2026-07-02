@@ -15,7 +15,7 @@ concurrency:
 jobs:
   detect-skills:
     name: Detect changed skills
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     permissions:
       contents: read
     outputs:
@@ -72,7 +72,7 @@ jobs:
     name: Tessl quality review
     needs: detect-skills
     if: needs.detect-skills.outputs.has_skills == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     permissions:
       contents: read
       pull-requests: write
@@ -296,5 +296,6 @@ jobs:
             echo "::error::Tessl quality review below threshold (70/100). Improve skill before merge."
           fi
           exit 1
+
 
 

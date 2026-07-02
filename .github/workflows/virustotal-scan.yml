@@ -14,7 +14,7 @@ permissions:
 jobs:
   scan-skills:
     name: Scan Skills with VirusTotal
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     permissions:
       contents: write
       pull-requests: write
@@ -159,5 +159,6 @@ jobs:
               issue_number: context.issue.number,
               body
             });
+
 
 

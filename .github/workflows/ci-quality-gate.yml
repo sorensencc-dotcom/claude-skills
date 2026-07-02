@@ -19,7 +19,7 @@ concurrency:
 jobs:
   quality:
     name: Lint, Tests, Docs, Security
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     permissions:
       contents: read
     timeout-minutes: 25
@@ -108,5 +108,6 @@ jobs:
         if: always()
         run: |
           echo "Quality gate completed with status: ${{ job.status }}"
+
 
 

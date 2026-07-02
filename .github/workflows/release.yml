@@ -34,7 +34,7 @@ permissions:
 jobs:
   release:
     name: Tag + GitHub Release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     timeout-minutes: 5
     steps:
       - name: Checkout
@@ -123,5 +123,6 @@ jobs:
         if: steps.tagcheck.outputs.exists == 'true'
         run: |
           echo "::notice::Tag ${{ steps.parse.outputs.tag }} already exists. Skipping release creation."
+
 
 

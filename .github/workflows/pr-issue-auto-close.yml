@@ -14,7 +14,7 @@ jobs:
   close-linked-issues:
     name: Close Issues Linked in PR
     if: github.event.pull_request.merged == true
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
       - name: Checkout repository
@@ -198,5 +198,6 @@ jobs:
 
             All linked issues have been automatically closed and marked as done.
             `);
+
 
 

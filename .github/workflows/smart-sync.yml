@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   determine-direction:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     timeout-minutes: 3
     permissions:
       contents: read
@@ -65,7 +65,7 @@ jobs:
   rate-limit-check:
     needs: determine-direction
     if: needs.determine-direction.outputs.should_sync == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     timeout-minutes: 2
     permissions:
       contents: read
@@ -108,7 +108,7 @@ jobs:
     if: |
       needs.determine-direction.outputs.should_sync == 'true' &&
       needs.rate-limit-check.outputs.can_proceed == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     timeout-minutes: 1
 
     steps:
@@ -123,7 +123,7 @@ jobs:
     if: |
       needs.determine-direction.outputs.direction == 'issue-to-project' &&
       needs.rate-limit-check.outputs.can_proceed == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     timeout-minutes: 5
     permissions:
       contents: read
@@ -265,7 +265,7 @@ jobs:
     if: |
       needs.determine-direction.outputs.direction == 'project-to-issue' &&
       needs.rate-limit-check.outputs.can_proceed == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     timeout-minutes: 5
     permissions:
       contents: read
@@ -388,5 +388,6 @@ jobs:
           fi
 
           echo "✅ Sync complete: Issue #$ISSUE_NUMBER updated to $STATUS"
+
 
 

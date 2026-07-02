@@ -25,7 +25,7 @@ concurrency:
 jobs:
   detect-changes:
     name: Detect changed skills
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     permissions:
       contents: read
     outputs:
@@ -92,7 +92,7 @@ jobs:
     name: Security audit
     needs: detect-changes
     if: needs.detect-changes.outputs.has_skills == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     permissions:
       contents: read
       pull-requests: write
@@ -245,5 +245,6 @@ jobs:
         run: |
           echo "::error::Security audit found CRITICAL findings. Merge blocked."
           exit 1
+
 
 
