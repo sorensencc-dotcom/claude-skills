@@ -33,7 +33,7 @@ jobs:
       has_skills: ${{ steps.find.outputs.has_skills }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -98,7 +98,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -245,4 +245,5 @@ jobs:
         run: |
           echo "::error::Security audit found CRITICAL findings. Merge blocked."
           exit 1
+
 
