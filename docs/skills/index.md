@@ -1,6 +1,6 @@
 ---
 title: "204 Agent Skills — Browse by Domain"
-description: "Browse 204 agent skills across 9 domains — engineering, product, marketing, C-level advisory, PM, regulatory, business growth, and finance. Claude Code plugins, Codex skills, and Gemini CLI skills."
+description: "Browse 204 agent skills across 9 domains — engineering, product, marketing, C-level advisory, PM, regulatory, business growth, and finance. Antigravity plugins, Codex skills, and Gemini CLI skills."
 hide:
   - edit
 ---
@@ -34,11 +34,11 @@ Browse 177 production-ready skills across 9 domains.
 
     Install bundles or individual skills
 
--   :material-devices:{ .lg .middle } **4 Platforms**
+-   :material-devices:{ .lg .middle } **5 Platforms**
 
     ---
 
-    Claude Code, Codex, Gemini, OpenClaw
+    Claude Code, Codex, Gemini, OpenClaw, Antigravity
 
 </div>
 
@@ -61,6 +61,15 @@ Browse 177 production-ready skills across 9 domains.
     ```bash
     git clone https://github.com/alirezarezvani/claude-skills.git
     cd claude-skills && python3 scripts/sync-gemini-skills.py
+    ```
+
+=== "Antigravity"
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    ./scripts/convert.sh --tool antigravity
+    ./scripts/install.sh --tool antigravity --force
     ```
 
 === "OpenAI Codex"

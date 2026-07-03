@@ -1,0 +1,89 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# CIC Agent Manifest Template  |  CIC AGENTS.md § 11
+# Replace all <PLACEHOLDER> values before registering.
+# ──────────────────────────────────────────────────────────────────────────────
+
+id: "cic.agents.<domain>.<agent_name>"
+version: "1.0.0"
+display_name: "<Human-Readable Agent Name>"
+description: "<One-sentence description of what this agent does.>"
+author: "<team-or-person>@<org>"
+cic_version_min: "2.0.0"
+
+phases:
+  - id: validate
+    description: "Validate and normalize inputs against the declared input schema."
+    reads: [inputs.raw]
+    writes: [inputs.validated, errors.validate]
+
+  # OPTIONAL — uncomment if agent calls more than one tool
+  # - id: plan
+  #   description: "Determine tool call sequence and execution strategy."
+  #   reads: [inputs.validated]
+  #   writes: [plan.tool_sequence]
+
+  - id: execute
+    description: "Core agent logic: tool calls, retrieval, computation."
+    reads: [inputs.validated]
+    writes: [execute.tool_results, execute.candidate_outputs]
+
+  # OPTIONAL — uncomment for high-stakes outputs
+  # - id: review
+  #   description: "Self-consistency check on candidate outputs before emission."
+  #   reads: [execute.candidate_outputs]
+  #   writes: [review.approved_outputs, review.issues]
+
+  - id: emit
+    description: "Format candidate outputs, enforce output schema, write checkpoints."
+    reads: [execute.candidate_outputs]
+    writes: [emit.final_output, checkpoints.emit]
+
+inputs:
+  schema: "./schemas/input.v1.schema.json"
+  required: [query, context]
+  optional: [metadata, trace_id]
+
+outputs:
+  schema: "./schemas/output.v1.schema.json"
+  always_present: [status, agent_id, phase_trace]
+  conditional: [result, error, partial_result]
+
+permissions:
+  read:
+    - cic.store.session
+    - cic.store.knowledge
+  write:
+    - cic.store.session
+  call:
+    - cic.tool.search       # Replace with actual tools
+    - cic.tool.retrieval    # Replace with actual tools
+  forbidden:
+    - cic.store.system
+    - cic.store.credentials
+
+failure_modes:
+  - id: input_validation_failure
+    phase: validate
+    severity: recoverable
+    output_field: errors.validate
+    description: "One or more required input fields are absent or schema-invalid."
+  - id: tool_timeout
+    phase: execute
+    severity: degraded
+    fallback: partial_result
+    description: "A tool call exceeded the declared timeout."
+  - id: tool_permission_denied
+    phase: execute
+    severity: fatal
+    output_field: error
+    description: "Runtime ACL denied a tool call."
+  - id: output_schema_violation
+    phase: emit
+    severity: fatal
+    output_field: error
+    description: "Assembled output failed schema validation."
+
+slo:
+  latency_p99_ms: 2000
+  max_retries: 3
+  timeout_ms: 5000

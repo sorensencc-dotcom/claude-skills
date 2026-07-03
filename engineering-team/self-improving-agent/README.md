@@ -2,7 +2,7 @@
 
 > Auto-memory captures. This plugin curates.
 
-A Claude Code plugin that turns auto-memory into a structured self-improvement loop. Analyze what Claude has learned, promote proven patterns to enforced rules, and extract recurring solutions into reusable skills.
+A Antigravity plugin that turns auto-memory into a structured self-improvement loop. Analyze what Claude has learned, promote proven patterns to enforced rules, and extract recurring solutions into reusable skills.
 
 ## Why
 

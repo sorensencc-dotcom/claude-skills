@@ -1,6 +1,6 @@
 ---
-title: Install Agent Skills — Codex, Gemini CLI, OpenClaw Setup
-description: "How to install 330 Claude Code skills and agent plugins for 13 AI coding tools. Step-by-step setup for Claude Code, OpenAI Codex, Gemini CLI, Hermes Agent, Mistral Vibe, OpenClaw, Cursor, Aider, Windsurf, and more. v2.8.2 adds productivity/handoff (Matt Pocock-inspired). v2.8.1 upgraded the engineering role-skills. v2.8.0 added business-operations + commercial domains."
+title: Install Agent Skills — Antigravity, Codex, Gemini Setup
+description: "How to install 330 Antigravity skills and agent plugins for 13 AI coding tools. Step-by-step setup for Antigravity, Claude Code, OpenAI Codex, Gemini CLI, Hermes Agent, Mistral Vibe, OpenClaw, Cursor, Aider, Windsurf, and more."
 ---
 
 # Getting Started
@@ -9,7 +9,23 @@ description: "How to install 330 Claude Code skills and agent plugins for 13 AI 
 
 Choose your platform and follow the steps:
 
+=== "Antigravity"
+
+    The recommended way to use these skills is through **Antigravity**. Antigravity provides the fastest and most integrated experience.
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    ./scripts/convert.sh --tool antigravity
+    ./scripts/install.sh --tool antigravity
+    ```
+
 === "Claude Code"
+
+    <details>
+    <summary>Legacy / Alternative Installation for Claude Code</summary>
+    
+    If you’re using Claude Code, you can still install skills using the legacy plugin system. Claude Code remains fully compatible with the Antigravity Skills Pack.
 
     <ol class="install-steps">
       <li>
@@ -20,19 +36,26 @@ Choose your platform and follow the steps:
         <strong>Install the skills you need</strong>
         <pre><code>/plugin install engineering-skills@claude-code-skills</code></pre>
       </li>
-      <li>
-        <strong>Use them immediately</strong> — skills activate as slash commands or contextual expertise.
-      </li>
     </ol>
+    </details>
+
+=== "Cursor"
+
+    These skills also work in Cursor and Codex via MCP.
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    ./scripts/convert.sh --tool cursor
+    ./scripts/install.sh --tool cursor --target /path/to/project
+    ```
 
 === "OpenAI Codex"
 
+    These skills also work in Cursor and Codex via MCP.
     ```bash
     npx agent-skills-cli add alirezarezvani/claude-skills --agent codex
     ```
-
     Or clone and install manually:
-
     ```bash
     git clone https://github.com/alirezarezvani/claude-skills.git
     ./scripts/codex-install.sh
@@ -44,9 +67,7 @@ Choose your platform and follow the steps:
     git clone https://github.com/alirezarezvani/claude-skills.git
     ./scripts/gemini-install.sh
     ```
-
     Or use the sync script to generate the skills index:
-
     ```bash
     python3 scripts/sync-gemini-skills.py
     ```
@@ -67,44 +88,14 @@ Choose your platform and follow the steps:
     python scripts/sync-hermes-skills.py --verbose
     ```
 
-    Skills install to `~/.hermes/skills/claude-skills/` and are automatically discovered by Hermes via `/skills` or `/<skill-name>`.
-
-    Sync options:
-
-    ```bash
-    python scripts/sync-hermes-skills.py --domain engineering  # one domain only
-    python scripts/sync-hermes-skills.py --copy                # copy instead of symlink
-    python scripts/sync-hermes-skills.py --dry-run             # preview
-    ```
-
 === "Mistral Vibe"
 
-    [Mistral Vibe](https://github.com/mistralai/mistral-vibe) is Mistral AI's open-source Apache-2.0 CLI coding agent. It uses the same agentskills.io SKILL.md standard — no format conversion needed.
+    [Mistral Vibe](https://github.com/mistralai/mistral-vibe) uses the same agentskills.io SKILL.md standard — no format conversion needed.
 
     ```bash
     git clone https://github.com/alirezarezvani/claude-skills.git
     cd claude-skills
     ./scripts/vibe-install.sh
-    ```
-
-    Skills install to `~/.vibe/skills/claude-skills/` (306 skills across 14 domains) and are automatically discovered by Vibe via `/skills` or `/<skill-name>`. See the [official Vibe docs](https://docs.mistral.ai/mistral-vibe/agents-skills) for details on the skills format.
-
-    Sync options:
-
-    ```bash
-    python scripts/sync-vibe-skills.py --domain engineering   # one domain only
-    python scripts/sync-vibe-skills.py --copy                 # copy instead of symlink
-    python scripts/sync-vibe-skills.py --dry-run              # preview
-    python scripts/sync-vibe-skills.py --target /opt/team/    # custom location
-    ```
-
-=== "Cursor"
-
-    ```bash
-    git clone https://github.com/alirezarezvani/claude-skills.git
-    cd claude-skills
-    ./scripts/convert.sh --tool cursor
-    ./scripts/install.sh --tool cursor --target /path/to/project
     ```
 
 === "Aider"
@@ -152,20 +143,11 @@ Choose your platform and follow the steps:
     ./scripts/install.sh --tool augment --target /path/to/project
     ```
 
-=== "Antigravity"
-
-    ```bash
-    git clone https://github.com/alirezarezvani/claude-skills.git
-    cd claude-skills
-    ./scripts/convert.sh --tool antigravity
-    ./scripts/install.sh --tool antigravity
-    ```
-
 === "Manual"
 
     ```bash
     git clone https://github.com/alirezarezvani/claude-skills.git
-    # Copy any skill folder to ~/.claude/skills/
+    # Copy any skill folder to ~/.gemini/antigravity/skills/
     ```
 
 !!! tip "All 7 tools at once"
@@ -197,13 +179,12 @@ Or install individual skills: `/plugin install skill-name@claude-code-skills`
 
 ## Usage
 
-### Slash Commands
+### Commands
 
 ```
 /pw:generate     Generate Playwright tests
 /pw:fix          Fix flaky test failures
 /si:review       Review auto-memory health
-/si:promote      Graduate a learning to CLAUDE.md
 /cs:board        Trigger a C-suite board meeting
 ```
 
@@ -212,11 +193,6 @@ Or install individual skills: `/plugin install skill-name@claude-code-skills`
 ```
 Using the senior-architect skill, review our microservices
 architecture and identify the top 3 scalability risks.
-```
-
-```
-Using the content-creator skill, write a blog post about
-AI-augmented development. Optimize for SEO.
 ```
 
 <hr class="section-divider">
@@ -231,15 +207,6 @@ python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py /pa
 
 # Analyze brand voice
 python3 marketing-skill/content-production/scripts/brand_voice_analyzer.py article.txt
-
-# RICE prioritization
-python3 product-team/product-manager-toolkit/scripts/rice_prioritizer.py features.csv
-
-# Generate landing page (TSX + Tailwind)
-python3 product-team/landing-page-generator/scripts/landing_page_scaffolder.py config.json --format tsx
-
-# Tech debt scoring
-python3 c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py /path/to/codebase
 ```
 
 <hr class="section-divider">
@@ -270,8 +237,6 @@ my-skill/
   assets/        # Templates (optional)
 ```
 
-See the [Skills & Agents Factory](https://github.com/alirezarezvani/claude-code-skill-factory) for a complete guide.
-
 <hr class="section-divider">
 
 ## FAQ
@@ -280,19 +245,10 @@ See the [Skills & Agents Factory](https://github.com/alirezarezvani/claude-code-
     No. Skills work locally with no external API calls. All Python tools use stdlib only.
 
 ??? question "Can I install individual skills instead of bundles?"
-    Yes. Use `/plugin install skill-name@claude-code-skills` for any single skill.
+    Yes. Use `/plugin install skill-name@claude-code-skills` for any single skill, or copy individual folders if using Antigravity.
 
-??? question "Do skills conflict with each other?"
-    No. Each skill is self-contained with no cross-dependencies.
-
-??? question "How do I update installed skills?"
-    Re-run the install command. The plugin system fetches the latest version from the marketplace.
-
-??? question "Will upgrading to v2.2.0 break my setup?"
-    No. v2.2.0 is fully backward compatible. Existing SKILL.md files, scripts, and references are unchanged. New skills (security suite, self-eval) are additive only.
-
-??? question "Does this work with Gemini CLI?"
-    Yes. Run `./scripts/gemini-install.sh` to set up skills for Gemini CLI. A sync script (`scripts/sync-gemini-skills.py`) generates the skills index automatically.
+??? question "Does this work with Antigravity?"
+    Yes! Antigravity is the recommended environment. Run `./scripts/convert.sh --tool antigravity` then `./scripts/install.sh --tool antigravity --force` to convert and install all skills. The files are installed directly to the global user profile scope (`~/.gemini/antigravity/skills/`).
 
 ??? question "Does this work with Cursor, Windsurf, Aider, or other tools?"
     Yes. All 330 skills can be converted to native formats for Cursor, Aider, Kilo Code, Windsurf, OpenCode, Augment, and Antigravity. Run `./scripts/convert.sh --tool all` and then install with `./scripts/install.sh --tool <name>`. See [Multi-Tool Integrations](integrations.md) for details.

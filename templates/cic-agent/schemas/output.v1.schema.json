@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "cic.agents.<domain>.<agent_name>.output.v1",
+  "title": "<AgentName> Output",
+  "description": "Output schema for <AgentName> v1. The 'status', 'agent_id', and 'phase_trace' fields are always present. 'result' is present on success; 'error' is present on failure; 'partial_result' is present on degraded execution.",
+  "type": "object",
+  "required": ["status", "agent_id", "phase_trace"],
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["success", "error", "degraded"],
+      "description": "Top-level outcome of the agent invocation."
+    },
+    "agent_id": {
+      "type": "string",
+      "description": "The manifest ID of the agent that produced this output."
+    },
+    "invocation_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for this invocation. Used for tracing and replay."
+    },
+    "phase_trace": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "Ordered list of phases that executed during this invocation."
+    },
+    "result": {
+      "description": "Present when status is 'success'. Replace with agent-specific result schema.",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "partial_result": {
+      "description": "Present when status is 'degraded'. Contains whatever the agent was able to produce.",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "error": {
+      "description": "Present when status is 'error'.",
+      "type": "object",
+      "required": ["code", "message", "severity"],
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^ERR_[A-Z_]+$",
+          "description": "Structured error code per Section 11.5.1 classification."
+        },
+        "message": {
+          "type": "string",
+          "description": "Human-readable error description. Never includes PII or credentials."
+        },
+        "field": {
+          "type": "string",
+          "description": "Input field associated with the error, if applicable."
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["recoverable", "degraded", "fatal"]
+        },
+        "retry_eligible": {
+          "type": "boolean",
+          "description": "Whether the caller may safely retry this invocation."
+        },
+        "docs_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Link to internal documentation for this error code."
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Pass-through of caller-supplied metadata from the input envelope.",
+      "additionalProperties": true
+    }
+  }
+}

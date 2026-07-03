@@ -1,6 +1,6 @@
 ---
 title: "Productivity Skills — Agent Skills & Codex Plugins"
-description: "6 productivity skills — personal productivity agent skill and Claude Code plugin for brain-dump capture, email triage, and reflection. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "6 productivity skills — personal productivity agent skill and Antigravity plugin for brain-dump capture, email triage, and reflection. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>

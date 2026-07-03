@@ -22,6 +22,8 @@ import subprocess
 import sys
 import tempfile
 import shutil
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, field, asdict
 from enum import IntEnum
 from pathlib import Path
@@ -71,6 +73,7 @@ class AuditReport:
     files_scanned: int = 0
     scripts_scanned: int = 0
     md_files_scanned: int = 0
+    duration_ms: int = 0
 
     @property
     def critical_count(self):
@@ -97,6 +100,7 @@ class AuditReport:
             "skill_name": self.skill_name,
             "skill_path": self.skill_path,
             "verdict": self.verdict,
+            "duration_ms": self.duration_ms,
             "summary": {
                 "critical": self.critical_count,
                 "high": self.high_count,
@@ -593,17 +597,22 @@ JS_PATTERNS = [
 # SCANNER
 # =============================================================================
 
+for pattern_list in [CODE_PATTERNS, PROMPT_INJECTION_PATTERNS, SHELL_PATTERNS, JS_PATTERNS]:
+    for pat in pattern_list:
+        pat["compiled_regex"] = re.compile(pat["regex"])
+
 CODE_EXTENSIONS = {".py", ".sh", ".bash", ".js", ".ts", ".mjs", ".cjs"}
 MD_EXTENSIONS = {".md", ".mdx", ".markdown"}
 ALL_SCAN_EXTENSIONS = CODE_EXTENSIONS | MD_EXTENSIONS
 
 
-def scan_file_code(filepath: Path, report: AuditReport):
-    """Scan a code file for dangerous patterns."""
+def scan_file_code(filepath: Path) -> list:
+    """Scan a code file for dangerous patterns and return findings."""
+    findings = []
     try:
         content = filepath.read_text(encoding="utf-8", errors="replace")
     except Exception:
-        return
+        return findings
 
     lines = content.split("\n")
     ext = filepath.suffix.lower()
@@ -629,8 +638,8 @@ def scan_file_code(filepath: Path, report: AuditReport):
             continue
 
         for pat in patterns:
-            if re.search(pat["regex"], line):
-                report.findings.append(
+            if pat["compiled_regex"].search(line):
+                findings.append(
                     Finding(
                         severity=pat["severity"],
                         category=pat["category"],
@@ -641,14 +650,16 @@ def scan_file_code(filepath: Path, report: AuditReport):
                         fix=pat["fix"],
                     )
                 )
+    return findings
 
 
-def scan_file_prompt_injection(filepath: Path, report: AuditReport):
-    """Scan a markdown file for prompt injection patterns."""
+def scan_file_prompt_injection(filepath: Path) -> list:
+    """Scan a markdown file for prompt injection patterns and return findings."""
+    findings = []
     try:
         content = filepath.read_text(encoding="utf-8", errors="replace")
     except Exception:
-        return
+        return findings
 
     lines = content.split("\n")
 
@@ -657,8 +668,8 @@ def scan_file_prompt_injection(filepath: Path, report: AuditReport):
         if "noqa: SEC-AUDITOR" in line or "auditor:ignore-line" in line:
             continue
         for pat in PROMPT_INJECTION_PATTERNS:
-            if re.search(pat["regex"], line):
-                report.findings.append(
+            if pat["compiled_regex"].search(line):
+                findings.append(
                     Finding(
                         severity=pat["severity"],
                         category=pat["category"],
@@ -669,6 +680,7 @@ def scan_file_prompt_injection(filepath: Path, report: AuditReport):
                         fix=pat["fix"],
                     )
                 )
+    return findings
 
 
 def scan_dependencies(skill_path: Path, report: AuditReport):
@@ -897,21 +909,35 @@ def scan_skill(skill_path: Path) -> AuditReport:
     # 1. Filesystem scan
     scan_filesystem(skill_path, report)
 
-    # 2. Code scanning
-    for code_file in skill_path.rglob("*"):
-        if ".git" in code_file.parts:
+    # 2 & 3. Code scanning and Prompt injection scanning
+    code_files = []
+    md_files = []
+    
+    for file_path in skill_path.rglob("*"):
+        if ".git" in file_path.parts:
             continue
-        if code_file.is_file() and code_file.suffix.lower() in CODE_EXTENSIONS:
-            report.scripts_scanned += 1
-            scan_file_code(code_file, report)
+        if not file_path.is_file():
+            continue
+        ext = file_path.suffix.lower()
+        if ext in CODE_EXTENSIONS:
+            code_files.append(file_path)
+        elif ext in MD_EXTENSIONS:
+            md_files.append(file_path)
 
-    # 3. Prompt injection scanning
-    for md_file in skill_path.rglob("*"):
-        if ".git" in md_file.parts:
-            continue
-        if md_file.is_file() and md_file.suffix.lower() in MD_EXTENSIONS:
-            report.md_files_scanned += 1
-            scan_file_prompt_injection(md_file, report)
+    report.scripts_scanned = len(code_files)
+    report.md_files_scanned = len(md_files)
+
+    futures = []
+    with ThreadPoolExecutor() as executor:
+        for code_file in code_files:
+            futures.append(executor.submit(scan_file_code, code_file))
+        for md_file in md_files:
+            futures.append(executor.submit(scan_file_prompt_injection, md_file))
+        
+        for future in as_completed(futures):
+            findings = future.result()
+            if findings:
+                report.findings.extend(findings)
 
     # 4. Dependency scanning
     scan_dependencies(skill_path, report)
@@ -973,6 +999,7 @@ def print_report(report: AuditReport):
         f"Scripts: {report.scripts_scanned}  "
         f"Markdown: {report.md_files_scanned}{' ' * (17 - len(str(report.files_scanned)) - len(str(report.scripts_scanned)) - len(str(report.md_files_scanned)))}║"
     )
+    print(f"║  Time: {report.duration_ms}ms{' ' * (44 - len(str(report.duration_ms)))}║")
     print("╚" + "═" * 54 + "╝")
 
     if not report.findings:
@@ -981,8 +1008,8 @@ def print_report(report: AuditReport):
 
     print()
 
-    # Sort by severity (critical first)
-    sorted_findings = sorted(report.findings, key=lambda f: -f.severity)
+    # Sort by severity (critical first), then by file, then by line
+    sorted_findings = sorted(report.findings, key=lambda f: (-f.severity, f.file, f.line))
 
     for f in sorted_findings:
         label = SEVERITY_LABELS[f.severity]
@@ -1040,7 +1067,9 @@ def main():
             sys.exit(1)
 
     try:
+        start_time = time.time()
         report = scan_skill(skill_path)
+        report.duration_ms = int((time.time() - start_time) * 1000)
 
         if args.json_output:
             print(json.dumps(report.to_dict(), indent=2))

@@ -1,6 +1,6 @@
 ---
 title: "Research Skills — Agent Skills & Codex Plugins"
-description: "8 research skills — research orchestrator agent skill and Claude Code plugin for hybrid routing across pulse, litreview, grants, dossier, patent, syllabus, and notebooklm specialists. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "8 research skills — research orchestrator agent skill and Antigravity plugin for hybrid routing across pulse, litreview, grants, dossier, patent, syllabus, and notebooklm specialists. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>

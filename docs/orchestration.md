@@ -1,6 +1,6 @@
 ---
 title: "Agent Orchestration — Multi-Skill Coordination Protocol"
-description: "A lightweight protocol for orchestrating AI coding agents, personas, and skills across domains. Coordinate Claude Code skills and Codex agents on complex, multi-domain work."
+description: "A lightweight protocol for orchestrating AI coding agents, personas, and skills across domains. Coordinate Antigravity skills and Codex agents on complex, multi-domain work."
 ---
 
 # :material-sitemap: Orchestration

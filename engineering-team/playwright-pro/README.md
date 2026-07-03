@@ -7,7 +7,7 @@ Generate tests, fix flaky failures, migrate from Cypress/Selenium, sync with Tes
 ## Install
 
 ```bash
-# Claude Code plugin
+# Antigravity plugin
 claude plugin install pw@claude-skills
 
 # Or load directly

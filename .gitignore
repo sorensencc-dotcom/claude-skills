@@ -62,3 +62,8 @@ tests/
 
 # Autoresearch agent workspace
 .autoresearch/
+
+# Local embedded Python runtime — never commit
+python-local/
+python-installer.exe
+python.zip

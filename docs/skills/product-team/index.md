@@ -1,6 +1,6 @@
 ---
 title: "Product Skills — Agent Skills & Codex Plugins"
-description: "17 product skills — product management agent skill and Claude Code plugin for PRDs, discovery, analytics, and roadmaps. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "17 product skills — product management agent skill and Antigravity plugin for PRDs, discovery, analytics, and roadmaps. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>

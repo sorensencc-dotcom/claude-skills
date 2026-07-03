@@ -159,11 +159,11 @@ Based on the page's purpose and domain:
 
 | Page Type | Primary Keywords | Secondary Keywords |
 |-----------|-----------------|-------------------|
-| Homepage (docs/index.md) | "Claude Code Skills", "agent plugins" | "Codex skills", "Gemini CLI", "OpenClaw" |
+| Homepage (docs/index.md) | "Antigravity Skills", "agent plugins" | "Codex skills", "Gemini CLI", "OpenClaw" |
 | Skill pages | Skill name + "Claude Code" | "agent skill", "Codex plugin", domain terms |
 | Agent pages | Agent name + "AI coding agent" | "Claude Code", "orchestrator" |
 | Command pages | Command name + "slash command" | "Claude Code", "AI coding" |
-| Getting started | "install Claude Code skills" | platform names |
+| Getting started | "install Antigravity skills" | platform names |
 | Domain index | Domain + "skills" + "plugins" | "Claude Code", platform names |
 
 ### 4b. Keyword placement checks
@@ -308,7 +308,7 @@ Generate a concise report for the user:
 
 These pages rank well for their target keywords. Only fix critical issues (broken links, missing meta). Do NOT rewrite content:
 
-- `docs/index.md` — homepage, ranks for "Claude Code Skills"
+- `docs/index.md` — homepage, ranks for "Antigravity Skills"
 - `docs/getting-started.md` — installation guide
 - `docs/integrations.md` — multi-tool support
 - Any page the user explicitly marks as "preserve"

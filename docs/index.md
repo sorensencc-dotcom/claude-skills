@@ -1,6 +1,6 @@
 ---
 title: 330 Agent Skills for Codex, Gemini CLI & OpenClaw
-description: "330 production-ready Claude Code skills and agent plugins for 13 AI coding tools — v2.8.2 adds a productivity-shaped `handoff` skill (Matt Pocock-inspired: first-run setup, redaction linter, SessionStart + SessionEnd hooks, fidelity self-check, --refresh); v2.8.1 upgraded the engineering role-skills (senior-fullstack/frontend/backend) with karpathy-coder + Matt Pocock decision engines; v2.8.0 added two new top-level domains (business-operations + commercial, 15 skills); v2.7.3 added AEO (Answer Engine Optimization for ChatGPT / Perplexity / Claude / Gemini / Mistral citation) + security-guidance PreToolUse hook; v2.7.0 added the megaprompt-derived productivity / marketing / research stacks; v2.6.0 added the Matt Pocock productivity quartet. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Hermes Agent, Mistral Vibe, Cursor, and OpenClaw."
+description: "330 production-ready Antigravity skills and agent plugins for 13 AI coding tools — v2.8.2 adds a productivity-shaped `handoff` skill (Matt Pocock-inspired: first-run setup, redaction linter, SessionStart + SessionEnd hooks, fidelity self-check, --refresh); v2.8.1 upgraded the engineering role-skills (senior-fullstack/frontend/backend) with karpathy-coder + Matt Pocock decision engines; v2.8.0 added two new top-level domains (business-operations + commercial, 15 skills); v2.7.3 added AEO (Answer Engine Optimization for ChatGPT / Perplexity / Claude / Gemini / Mistral citation) + security-guidance PreToolUse hook; v2.7.0 added the megaprompt-derived productivity / marketing / research stacks; v2.6.0 added the Matt Pocock productivity quartet. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Hermes Agent, Mistral Vibe, Cursor, and OpenClaw."
 hide:
   - toc
   - edit
@@ -299,6 +299,15 @@ hide:
     cd claude-skills
     ./scripts/convert.sh --tool cursor    # or windsurf, aider
     ./scripts/install.sh --tool cursor --target /path/to/project
+    ```
+
+=== "Antigravity"
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    ./scripts/convert.sh --tool antigravity
+    ./scripts/install.sh --tool antigravity --force
     ```
 
 [Full Install Guide](getting-started.md){ .md-button .md-button--primary }

@@ -16,7 +16,7 @@ Not just guidelines — ships Python tools that **detect** violations, a review 
 ## Quick start
 
 ```bash
-# Install as Claude Code plugin
+# Install as Antigravity plugin
 /plugin marketplace add alirezarezvani/claude-skills
 /plugin install karpathy-coder@claude-code-skills
 

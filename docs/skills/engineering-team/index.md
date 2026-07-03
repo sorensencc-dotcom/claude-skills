@@ -1,6 +1,6 @@
 ---
 title: "Engineering - Core Skills — Agent Skills & Codex Plugins"
-description: "51 engineering - core skills — engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "51 engineering - core skills — engineering agent skill and Antigravity plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>

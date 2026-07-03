@@ -47,7 +47,7 @@ The hook scans both:
 
 ## Installation
 
-This plugin ships as a Claude Code plugin with `hooks.json` wiring:
+This plugin ships as a Antigravity plugin with `hooks.json` wiring:
 
 ```bash
 # In Claude Code:

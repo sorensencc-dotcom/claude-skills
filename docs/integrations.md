@@ -1,6 +1,6 @@
 ---
 title: Cursor, Aider, Windsurf, Hermes, Mistral Vibe & 8 More AI Coding Tools
-description: "Install Claude Code skills and agent plugins in Hermes Agent, Mistral Vibe, Cursor, Aider, Kilo Code, Windsurf, OpenCode, Augment, and Antigravity. One-command conversion for 13 AI coding agents."
+description: "Install Antigravity skills and agent plugins in Hermes Agent, Mistral Vibe, Cursor, Aider, Kilo Code, Windsurf, OpenCode, Augment, and Antigravity. One-command conversion for 13 AI coding agents."
 ---
 
 # Multi-Tool Integrations
@@ -655,7 +655,7 @@ Hermes's skill_view tool loads the SKILL.md content into the conversation contex
 | `AGENTS.md` project context | ✅ | Hermes reads AGENTS.md natively |
 | Slash commands (`/<name>`) | ✅ | Auto-discovered from SKILL.md |
 | Sub-agents | ⚠️ | Hermes uses its own `delegate_tool`, not Claude Code's Agent tool — agent .md files load as context but dispatch mechanism differs |
-| Claude Code plugin.json | ➖ | Hermes ignores this — not needed, it scans SKILL.md directly |
+| Antigravity plugin.json | ➖ | Hermes ignores this — not needed, it scans SKILL.md directly |
 | Hooks (settings.json) | ⚠️ | Different hook system — manual wiring for Hermes's config.yaml |
 
 ### Verify
@@ -852,7 +852,7 @@ Vibe can also auto-load skills when your prompt matches a skill's `description` 
 | References / templates / assets | ✅ | Same directory convention |
 | Slash commands (`/<name>`) | ✅ | Auto-discovered from SKILL.md |
 | Sub-agents | ⚠️ | Vibe uses its own subagent system with TOML configs (`~/.vibe/agents/`) — Claude Code agent `.md` files load as context but dispatch differs |
-| Claude Code plugin.json | ➖ | Vibe ignores this — scans SKILL.md directly |
+| Antigravity plugin.json | ➖ | Vibe ignores this — scans SKILL.md directly |
 | Hooks (settings.json) | ➖ | Vibe has its own hook system; manual wiring required |
 
 ### Verify

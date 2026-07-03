@@ -238,7 +238,7 @@ The coordinator should act when:
 ## Installation
 
 ```bash
-# Copy to your Claude Code skills directory
+# Copy to your Antigravity skills directory
 cp -r engineering/agenthub ~/.claude/skills/agenthub
 
 # Or install via ClawHub

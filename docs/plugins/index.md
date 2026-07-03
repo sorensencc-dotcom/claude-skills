@@ -7,9 +7,9 @@ description: "55 installable agent plugins for Claude Code, Codex CLI, Gemini CL
 
 # Plugins & Marketplace
 
-**55 installable plugins** — 9 domain bundles + 46 standalone packages distributed via Claude Code plugin registry and ClawHub.
+**55 installable plugins** — 9 domain bundles + 46 standalone packages distributed via Antigravity plugin registry and ClawHub.
 
-<p class="skills-hero-sub">Install entire skill domains or individual tools with a single command. Compatible with Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw.</p>
+<p class="skills-hero-sub">Install entire skill domains or individual tools with a single command. Compatible with Claude Code, OpenAI Codex, Gemini CLI, OpenClaw, and Antigravity.</p>
 
 </div>
 
@@ -37,11 +37,11 @@ description: "55 installable agent plugins for Claude Code, Codex CLI, Gemini CL
 
     All skills available through plugin install
 
--   :material-sync:{ .lg .middle } **4 Platforms**
+-   :material-sync:{ .lg .middle } **5 Platforms**
 
     ---
 
-    Claude Code, OpenAI Codex, Gemini CLI, OpenClaw — single repo, all platforms
+    Claude Code, OpenAI Codex, Gemini CLI, OpenClaw, Antigravity — single repo, all platforms
 
 </div>
 
@@ -368,6 +368,7 @@ Two approved extension fields permitted (per CLAUDE.md ClawHub rule #5):
 | **Claude Code** | :material-check: | :material-check: | :material-check: | :material-check: |
 | **OpenAI Codex** | :material-check: | :material-check: | :material-close: | :material-close: |
 | **Gemini CLI** | :material-check: | :material-check: | :material-close: | :material-close: |
+| **Antigravity** | :material-check: | :material-check: | :material-close: | :material-close: |
 | **OpenClaw** | :material-check: | :material-check: | :material-close: | :material-close: |
 
 !!! tip "Full feature support"
@@ -458,7 +459,7 @@ Two approved extension fields permitted (per CLAUDE.md ClawHub rule #5):
     Re-run the install command. Plugins follow semantic versioning aligned with the repository releases (currently v2.7.0).
 
 ??? question "What is ClawHub?"
-    [ClawHub](https://clawhub.com) is the public registry for Claude Code plugins. Think of it like npm for AI agent skills. The `cs-` prefix is used only when a plugin slug conflicts with another publisher.
+    [ClawHub](https://clawhub.com) is the public registry for Antigravity plugins. Think of it like npm for AI agent skills. The `cs-` prefix is used only when a plugin slug conflicts with another publisher.
 
 ??? question "Can I use skills without installing anything?"
     Yes. We have [6 Custom GPTs for ChatGPT](../custom-gpts.md) that package Agent Skills into a conversational interface — no installation, no API keys. Just click and chat.

@@ -123,7 +123,7 @@ The hook surfaces the most recent handoff (within the retention window) wrapped 
 
 - XDG Base Directory Specification — `~/.config/<app>/` for user configs.
 - Twelve-Factor App, Config (factor III) — config in the environment / standard locations.
-- Anthropic, *Claude Code plugin configuration* — `${CLAUDE_PLUGIN_ROOT}` and hook wiring.
+- Anthropic, *Antigravity plugin configuration* — `${CLAUDE_PLUGIN_ROOT}` and hook wiring.
 - POSIX `mktemp(1)` — atomic temp-file creation semantics.
 - Atlassian Confluence, *page lifecycle and retention* — the precedent for mtime-guarded cleanup.
 - Honeycomb, *Observability config patterns* — defaults that are safe; opt-ins that are explicit.

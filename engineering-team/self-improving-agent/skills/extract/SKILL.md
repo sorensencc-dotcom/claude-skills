@@ -136,7 +136,7 @@ Before finalizing, verify:
 
 - [ ] SKILL.md has valid YAML frontmatter with `name` and `description`
 - [ ] `name` matches the folder name (lowercase, hyphens)
-- [ ] `name` does NOT contain reserved fragments `claude` or `anthropic` (use `cc-` prefix for Claude Code skills)
+- [ ] `name` does NOT contain reserved fragments `claude` or `anthropic` (use `cc-` prefix for Antigravity skills)
 - [ ] Description includes "Use when:" trigger conditions
 - [ ] Solutions are self-contained (no external context needed)
 - [ ] Code examples are complete and copy-pasteable

@@ -1,6 +1,6 @@
-# Installation Guide - Claude Skills Library
+# Installation Guide - Antigravity Skills Library
 
-Complete installation guide for all 205+ production-ready skills across multiple AI agents and platforms.
+Complete installation guide for all 205+ production-ready skills across multiple AI agents and platforms, now primarily optimized for Antigravity (formerly Claude Code Skills).
 
 ## Table of Contents
 
@@ -9,6 +9,7 @@ Complete installation guide for all 205+ production-ready skills across multiple
 - [Universal Installer](#universal-installer)
 - [OpenAI Codex Installation](#openai-codex-installation)
 - [Gemini CLI Installation](#gemini-cli-installation)
+- [Antigravity Installation](#antigravity-installation)
 - [Mistral Vibe Installation](#mistral-vibe-installation)
 - [OpenClaw Installation](#openclaw-installation)
 - [Per-Skill Installation](#per-skill-installation)
@@ -24,15 +25,17 @@ Complete installation guide for all 205+ production-ready skills across multiple
 
 **Choose your agent:**
 
-### For Claude Code Users (Recommended)
+### For Antigravity Users (Recommended)
 
 ```bash
-# In Claude Code, run:
-/plugin marketplace add alirezarezvani/claude-skills
-/plugin install marketing-skills@claude-code-skills
+# Convert and install skills for Antigravity
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+./scripts/convert.sh --tool antigravity
+./scripts/install.sh --tool antigravity --force
 ```
 
-Native integration with automatic updates and version management.
+Skills install to `~/.gemini/antigravity/skills/`.
 
 ### For OpenAI Codex Users
 
@@ -56,6 +59,16 @@ cd claude-skills
 ```
 
 Skills install to `.gemini/skills/` and are activated via `activate_skill(name="skill-name")`.
+
+### For Claude Code Users (Legacy)
+
+```bash
+# In Claude Code, run:
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install marketing-skills@claude-code-skills
+```
+
+Native integration with automatic updates and version management.
 
 ### For Mistral Vibe Users
 
@@ -100,7 +113,7 @@ Learn more: https://www.agentskills.in
 
 ---
 
-## Claude Code Native Marketplace (New!)
+## Claude Code Native Marketplace
 
 **Best for Claude Code users** - Native integration with Claude Code's plugin system.
 
@@ -187,6 +200,7 @@ npx agent-skills-cli add alirezarezvani/claude-skills
 ```
 
 **This installs to:**
+- Antigravity → `~/.gemini/antigravity/skills/`
 - Claude Code → `~/.claude/skills/`
 - Cursor → `.cursor/skills/`
 - VS Code/Copilot → `.github/skills/`
@@ -737,6 +751,32 @@ python3 marketing-skill/content-production/scripts/brand_voice_analyzer.py artic
 
 ---
 
+## Antigravity Installation
+
+Google Antigravity users can convert and install all 330+ skills, agents, and commands into their Antigravity workspace.
+
+### Setup Instructions
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    ```
+
+2.  **Convert the skills:**
+    ```bash
+    ./scripts/convert.sh --tool antigravity
+    ```
+
+3.  **Install the skills:**
+    ```bash
+    ./scripts/install.sh --tool antigravity --force
+    ```
+
+This installs all skills into `~/.gemini/antigravity/skills/`.
+
+---
+
 ## Mistral Vibe Installation
 
 [Mistral Vibe](https://github.com/mistralai/mistral-vibe) is Mistral AI's open-source CLI coding agent (Apache-2.0). It uses the same [`SKILL.md` + YAML frontmatter](https://docs.mistral.ai/mistral-vibe/agents-skills) standard as Claude Code and Hermes, so this repo installs into Vibe with **zero format conversion** — just symlinks.
@@ -1028,6 +1068,7 @@ See `.codex/skills-index.json` for the complete manifest with descriptions.
 | **OpenCode** | Platform-specific | `--agent opencode` | Varies by platform |
 | **OpenClaw** | `~/.openclaw/skills/` | `clawhub install` | YAML frontmatter triggers |
 | **Gemini CLI** | `.gemini/skills/` | `gemini-install.sh` | Symlink-based discovery |
+| **Antigravity** | `~/.gemini/antigravity/skills/` | `install.sh --tool antigravity` | Converted skills directory |
 | **Mistral Vibe** | `~/.vibe/skills/` | `vibe-install.sh` | Same `SKILL.md` standard, no conversion |
 | **Project** | `.skills/` | `--agent project` | Portable, project-specific |
 
