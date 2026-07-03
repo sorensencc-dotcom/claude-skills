@@ -1,0 +1,136 @@
+scripts/package.json
+  s_d3640c043b3d74::t_0cd71020ad86ac 1-3
+scripts/code-review.js
+  s_d3640c043b3d74::t_ac8e27bda2365c 43-46
+  s_d3640c043b3d74::t_74078afdf31885 23-27
+  s_d3640c043b3d74::t_547cb56f88bf3d 20-22
+  s_d3640c043b3d74::t_7851ea46c83871 28-30,40-42
+  s_d3640c043b3d74::t_37b7e628f14603 47-49
+  s_d3640c043b3d74::t_6223cb49e41390 1-19,31-39,50-206
+.gitignore
+  s_d3640c043b3d74::t_d9d6dfa6f9b4a5 65-69
+scripts/generate-docs.js
+  s_10803700c7fcba::t_e12273252aec59 1-219
+scripts/shared-utils.js
+  s_10803700c7fcba::t_0aa5dedf96e225 1-71
+ANTIGRAVITY.md
+  s_10803700c7fcba::t_db278ab11d1228 1-54
+CLAUDE.md
+  s_10803700c7fcba::t_5d3ae806cfb3a5 7,11,379
+CONTRIBUTING.md
+  s_10803700c7fcba::t_5bc2e19646e826 1,3
+INSTALLATION.md
+  s_10803700c7fcba::t_20e14740336ff9 1,3,12,28,31-35,38,63-72,116,203,754-779,1071
+README.md
+  s_10803700c7fcba::t_936cb95842f59f 1,3,5,7,20,24,26,32,49,56-58,61-68,79,81-83,86-92,95-97,100-101,104,107,109-112,123,202-206,209
+commands/seo-auditor.md
+  s_10803700c7fcba::t_d17b4abb8973d4 162,166,311
+docs/commands/seo-auditor.md
+  s_10803700c7fcba::t_32c559c1c67694 165,169,314
+docs/custom-gpts.md
+  s_10803700c7fcba::t_fd9517bf050a16 3
+docs/getting-started.md
+  s_10803700c7fcba::t_6f12aba4b11a85 2-3,12-22,25-29,40-50,54,93,150,182,248,250-251
+docs/guides/antigravity-skills-guide.md
+  s_10803700c7fcba::t_fd4fff827551ee 1-87
+docs/guides/best-antigravity-plugins.md
+  s_10803700c7fcba::t_7bbd82b785960c 2-3,6,8-10,18-20,22,28-40,42,48,52,56-65,69-74,78-83,87-92,100,103,109,113,119,126,133
+docs/guides/openclaw-skills-guide.md
+  s_10803700c7fcba::t_c82170328fdf78 165
+docs/index.md
+  s_10803700c7fcba::t_830667cc27f6f3 3,304-312
+docs/integrations.md
+  s_10803700c7fcba::t_ee8a213f8014ea 3,658,855
+docs/orchestration.md
+  s_10803700c7fcba::t_37d0176b194472 3
+docs/personas/index.md
+  s_10803700c7fcba::t_cb5c26fda3d9c9 3
+docs/plugins/index.md
+  s_10803700c7fcba::t_374c771c61301f 10,12,40,44,371,462
+docs/skills/business-growth/index.md
+  s_10803700c7fcba::t_c383cc60d4f7b9 3
+docs/skills/c-level-advisor/index.md
+  s_10803700c7fcba::t_5af2add0107051 3
+docs/skills/engineering-team/index.md
+  s_10803700c7fcba::t_4c936a280b9195 3
+docs/skills/engineering-team/playwright-pro-pw.md
+  s_10803700c7fcba::t_1796a2b97a29c3 23
+docs/skills/engineering-team/playwright-pro.md
+  s_10803700c7fcba::t_8288faeab7a3fb 23
+docs/skills/engineering-team/self-improving-agent-extract.md
+  s_10803700c7fcba::t_c35d30e3186281 150
+docs/skills/engineering/agenthub.md
+  s_10803700c7fcba::t_02b96c3c2e1fe2 241
+docs/skills/engineering/index.md
+  s_10803700c7fcba::t_8698c83660028e 3
+docs/skills/engineering/security-guidance.md
+  s_10803700c7fcba::t_2260b48c1c125a 61
+docs/skills/finance/index.md
+  s_10803700c7fcba::t_932bff911661d2 3
+docs/skills/index.md
+  s_10803700c7fcba::t_3a10ae3730a0f0 3,37,41,66-74
+docs/skills/marketing-skill/index.md
+  s_10803700c7fcba::t_c59fb612012d1d 3
+docs/skills/marketing/index.md
+  s_10803700c7fcba::t_8c72377841f066 3
+docs/skills/product-team/index.md
+  s_10803700c7fcba::t_0d4423dcd6f1e9 3
+docs/skills/productivity/index.md
+  s_10803700c7fcba::t_8fd1012c76d274 3
+docs/skills/project-management/index.md
+  s_10803700c7fcba::t_45676e07a93e5d 3
+docs/skills/research/index.md
+  s_10803700c7fcba::t_561a14c9f73f3d 3
+engineering-team/playwright-pro/README.md
+  s_10803700c7fcba::t_3812b229f82a4f 10
+engineering-team/playwright-pro/skills/pw/SKILL.md
+  s_10803700c7fcba::t_d7ebcf4ab5bc77 12
+engineering-team/self-improving-agent/README.md
+  s_10803700c7fcba::t_53a0ab097f3311 5
+engineering-team/self-improving-agent/skills/extract/SKILL.md
+  s_10803700c7fcba::t_4d00d29cad9da1 139
+engineering/agenthub/skills/agenthub/SKILL.md
+  s_10803700c7fcba::t_7727a22879c8ec 236
+engineering/karpathy-coder/README.md
+  s_10803700c7fcba::t_4219f40256975c 19
+engineering/security-guidance/skills/security-guidance/SKILL.md
+  s_10803700c7fcba::t_e30667073deeda 50
+engineering/skills/skill-security-auditor/SKILL.md
+  s_10803700c7fcba::t_a139267ded6dcf 7
+engineering/skills/skill-security-auditor/scripts/skill_security_auditor.py
+  s_10803700c7fcba::t_92e070edd8ad63 25-26,76,103,600-603,609-611,615,641-642,653,656-658,662,671-672,683,912-917,919,921-940,1002,1011-1012,1070,1072
+productivity/handoff/skills/handoff/references/configuration.md
+  s_10803700c7fcba::t_bca7d993ada4d0 126
+templates/cic-agent/agent.manifest.yaml
+  s_10803700c7fcba::t_c2f450d0439832 1-89
+templates/cic-agent/agent.py
+  s_10803700c7fcba::t_680fe16ddc6ead 1-271
+templates/cic-agent/schemas/input.v1.schema.json
+  s_10803700c7fcba::t_63808b549f4576 1-46
+templates/cic-agent/schemas/output.v1.schema.json
+  s_10803700c7fcba::t_acebd9c13d4176 1-80
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.9",
+  "base_commit_sha": "968c78fb2678eae5b0d3ab93cec2463c2de04f3c",
+  "prompts": {},
+  "sessions": {
+    "s_10803700c7fcba": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "45ab3f3c-7556-4cff-a7e7-250f36c3a430",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "human_author": "Chris Sorensen <sorensencc@gmail.com>"
+    },
+    "s_d3640c043b3d74": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b6a3bc7a-e5d5-4837-8509-3c2a67fc7c7d",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Chris Sorensen <sorensencc@gmail.com>"
+    }
+  }
+}
