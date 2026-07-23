@@ -1,0 +1,21 @@
+scripts/review-new-skills.sh
+  s_5f8d40bf855cf6::t_b36a4d18622adc 49
+scripts/convert.sh
+  s_5f8d40bf855cf6::t_d7da3a4ed74fc6 434
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "f2c95a702abdff498380015f33b676494f441791",
+  "prompts": {},
+  "sessions": {
+    "s_5f8d40bf855cf6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "08f1121a-602b-4b4c-a8fe-b6db21242ea3",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Chris Sorensen <sorensencc@gmail.com>"
+    }
+  }
+}
