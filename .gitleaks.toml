@@ -1,0 +1,4 @@
+title = "claude-skills gitleaks config"
+
+[extend]
+useDefault = true
